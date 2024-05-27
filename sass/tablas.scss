@@ -1,0 +1,20 @@
+$primary-color: #3F51B5;
+
+body {
+    background-color: $primary-color;
+    color: white;
+    display:block;
+
+    h1{
+        color:red,
+    }
+
+    .style_form{
+        form{
+            .form_usuarios{
+                background:red;
+            }
+        }
+    }
+        
+}

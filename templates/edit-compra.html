@@ -1,0 +1,9 @@
+<form action="/update_compra/{{compra[0]}}" method="POST">
+    <input type="text" name="id" placeholder="ID" value="{{compra[0]}}">
+    <input type="text" name="cliente_id" placeholder="cliente_id" value="{{compra[1]}}">
+    <input type="text" name="producto_id" placeholder="producto_id" value="{{compra[2]}}">
+    <input type="number" name="cantidad" placeholder="cantidad" value="{{compra[3]}}">
+    <input type="number" name="precio_unitario" placeholder="precio_unitario" value="{{compra[4]}}">
+    <input type="date" name="fecha" placeholder="fecha" value="{{compra[5]}}">
+    <button type="submit">Guardar</button>
+</form>

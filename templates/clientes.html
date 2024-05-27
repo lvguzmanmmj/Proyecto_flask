@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylee.css') }}">
+
+</head>
+<body class="style_form">
+    <h1>CLIENTES</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+<section class="style_form">
+    <form class="form_usuarios"action="/clientes" method="POST">
+        <input type="text" name="id" placeholder="ID">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <input type="text" name="apellido" placeholder="Apellido">
+        <input type="email" name="email" placeholder="Email">
+        <input type="tel" name="telefono" placeholder="Telefono">
+        <input type="text" name="direccion" placeholder="Direccion">
+        <button type="submit">Guardar</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Direccion</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente[0] }}</td>
+                    <td>{{ cliente[1] }}</td>
+                    <td>{{ cliente[2] }}</td>
+                    <td>{{ cliente[3] }}</td>
+                    <td>{{ cliente[4] }}</td>
+                    <td>{{ cliente[5] }}</td>
+                    <td>
+                        <a href="/edit/{{ cliente[0] }}">Edit</a> 
+                        <a href="/delete/{{ cliente[0] }}">Delete</a></td>
+                    </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</section>
+   
+</body>
+</html>

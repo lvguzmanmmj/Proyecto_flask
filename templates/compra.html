@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Compra</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h1>Compra</h1>
+    <form action="/compra" method="POST">
+        <input type="text" name="id" placeholder="ID">
+        <input type="text" name="cliente_id" placeholder="cliente_id">
+        <input type="text" name="producto_id" placeholder="producto_id">
+        <input type="number" name="cantidad" placeholder="cantidad">
+        <input type="number" name="precio_unitario" placeholder="precio_unitario">
+        <input type="date" name="fecha" placeholder="fecha">
+        <button type="submit">Guardar</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente ID</th>
+                <th>Producto ID</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Fecha</th>
+                <th>Operaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for compra in compras %}
+                <tr>
+                    <td>{{ compra[0] }}</td>
+                    <td>{{ compra[1] }}</td>
+                    <td>{{ compra[2] }}</td>
+                    <td>{{ compra[3] }}</td>
+                    <td>{{ compra[4] }}</td>
+                    <td>{{ compra[5] }}</td>
+                    <td>
+                        <a href="/edit_compra/{{ compra[0] }}">Editt</a> 
+                        <a href="/delete_compra/{{ compra[0] }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
